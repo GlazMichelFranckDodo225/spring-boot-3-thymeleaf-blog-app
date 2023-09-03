@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
     // Handler Method for the Http
     // Request "http://localhost:8080/variable-expression"
+    // This Method is used to handle "variable-expression" Request
     @GetMapping("/variable-expression")
     public String variableExpression(Model model) {
         User user = User.builder()
@@ -21,5 +22,22 @@ public class UserController {
         model.addAttribute("user", user);
 
         return "variable-expression";
+    }
+
+    // Handler Method for the Http
+    // Request "http://localhost:8080/selection-expression"
+    // This Method is used to handle "selection-expression" Request
+    @GetMapping("/selection-expression")
+    public String selectionExpression(Model model) {
+        User user = User.builder()
+                .name("John Doe")
+                .email("johndoe@gmail.com")
+                .role("ADMIN")
+                .gender("Male")
+                .build();
+
+        model.addAttribute("user", user);
+
+        return "selection-expression";
     }
 }
