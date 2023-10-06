@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- Thymeleaf Namespace to use Thymeleaf syntax-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragment Expression</title>
+</head>
+<body>
+    <h1>Fragment Expression :</h1>
+    <!-- cheminDufichierSansExtenxion::identifiantDuFragment -->
+    <div th:replace="~{common/header::header}"></div>
+
+    <div th:insert="~{common/pageBody::pageBody}"></div>
+
+    <div th:replace="~{common/footer::footer}"></div>
+</body>
+</html>

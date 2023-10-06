@@ -56,4 +56,11 @@ public class UserController {
         
         return "link-expression";
     }
+
+    // Handler Method to handler Fragment Expression Request
+    // Request "http://localhost:8080/fragment-expression"
+    @GetMapping("/fragment-expression")
+    public String fragmentExpression(Model model) {
+        return "fragment-expression";
+    }
 }
