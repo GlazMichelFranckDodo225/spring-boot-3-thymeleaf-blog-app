@@ -102,4 +102,40 @@ public class UserController {
 
         return "users";
     }
+
+    // Handler Method to handle "IF/UNLESS" in
+    // Thymeleaf (th:if and th:unless Attributes)
+    // Request "http://localhost:8080/if-unless"
+    @GetMapping("/if-unless")
+    public String ifUnless(Model model) {
+        User admin = User.builder()
+                .name("John Doe")
+                .email("johndoe@Gmail.com")
+                .gender("Male")
+                .role("ADMIN")
+                .build();
+
+        User ovelie = User.builder()
+                .name("Ovelie Ortega")
+                .email("ovelieortega@Gmail.com")
+                .gender("Female")
+                .role("USER")
+                .build();
+
+        User gaspard = User.builder()
+                .name("Gaspard Delafontaine")
+                .email("gasparddelafontaine@Gmail.com")
+                .gender("Male")
+                .role("MANAGER")
+                .build();
+
+        List<User> users = new ArrayList<>();
+        users.add(admin);
+        users.add(ovelie);
+        users.add(gaspard);
+
+        model.addAttribute("users", users);
+
+        return "if-unless";
+    }
 }
