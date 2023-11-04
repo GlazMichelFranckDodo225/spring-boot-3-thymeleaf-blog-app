@@ -138,4 +138,23 @@ public class UserController {
 
         return "if-unless";
     }
+
+    // Handler Method to handle "SWITCH/CASE" in
+    // Thymeleaf (th:switch and th:case Attributes)
+    // Request "http://localhost:8080/switch-case"
+    @GetMapping("/switch-case")
+    public String switchCase(Model model) {
+        User user = User.builder()
+                .name("John Doe")
+                .email("johndoe@Gmail.com")
+                .gender("Male")
+                // .role("ADMIN")
+                // .role("USER")
+                .role("GUEST")
+                .build();
+
+        model.addAttribute("user", user);
+
+        return "switch-case";
+    }
 }

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Attribute - th:switch and th:case</title>
+</head>
+<body>
+    <h1>Thymeleaf Attribute - th:switch and th:case</h1>
+    <h3 th:text="${user.name}"></h3>
+    <div th:switch="${user.role}">
+        <p th:case="'ADMIN'">User is a Admin User</p>
+        <p th:case="'USER'">User is a Normal User</p>
+        <p th:case="*">User is Something else</p>
+    </div>
+</body>
+</html>
