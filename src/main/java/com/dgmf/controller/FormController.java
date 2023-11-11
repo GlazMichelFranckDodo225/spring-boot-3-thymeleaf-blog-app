@@ -1,6 +1,6 @@
 package com.dgmf.controller;
 
-import com.dgmf.model.UserForm;
+import com.dgmf.entity.UserForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

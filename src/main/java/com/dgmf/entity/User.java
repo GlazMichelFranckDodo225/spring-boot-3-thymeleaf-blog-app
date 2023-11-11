@@ -1,4 +1,4 @@
-package com.dgmf.model;
+package com.dgmf.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,12 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class UserForm {
+public class User {
     private String name;
     private String email;
-    private String password;
+    private String role;
     private String gender;
-    private String address;
-    private boolean married;
-    private String profession;
 }
