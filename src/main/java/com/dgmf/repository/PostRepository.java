@@ -1,6 +1,6 @@
 package com.dgmf.repository;
 
-import com.dgmf.entity.Post;
+import com.dgmf.post.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
