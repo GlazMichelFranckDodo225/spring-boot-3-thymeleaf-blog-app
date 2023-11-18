@@ -1,4 +1,4 @@
-package com.dgmf.controller;
+package com.dgmf.web.controller;
 
 import com.dgmf.entity.UserForm;
 import org.springframework.stereotype.Controller;
