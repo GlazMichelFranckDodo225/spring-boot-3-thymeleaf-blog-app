@@ -1,4 +1,4 @@
-package com.dgmf.user;
+package com.dgmf.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
