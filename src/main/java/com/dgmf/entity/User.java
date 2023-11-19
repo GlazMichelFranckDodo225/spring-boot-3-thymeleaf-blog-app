@@ -1,4 +1,4 @@
-package com.dgmf.post;
+package com.dgmf.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -12,7 +12,7 @@
     <div align="center">
         <div style="border-style: solid; width: 500px;">
             <h1>User Registration</h1>
-            <form method="post" th:action="@{/register/save}" th:object="${userForm}">
+            <form method="user" th:action="@{/register/save}" th:object="${userForm}">
                 <!-- Selection Expressions -->
                 <label>Full name :</label>
                 <input type="text" th:field="*{name}"><br>

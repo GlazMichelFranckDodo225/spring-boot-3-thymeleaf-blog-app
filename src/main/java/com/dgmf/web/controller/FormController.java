@@ -1,11 +1,11 @@
 package com.dgmf.web.controller;
 
-import com.dgmf.post.UserForm;
+import com.dgmf.user.UserForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.UserMapping;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +33,7 @@ public class FormController {
 
     // Handler Method to handle User Registration Form Submission Request
     //  "http://localhost:8080/register/save"
-    @PostMapping("/register/save")
+    @UserMapping("/register/save")
     public String submitForm(
             Model model,
             @ModelAttribute("userForm") UserForm userForm
