@@ -12,16 +12,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+// @RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
-    private final PostRepository postRepository;
+    private PostRepository postRepository;
+
+    public PostServiceImpl(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     @Override
     public List<PostDto> findAllPosts() {
         List<Post> posts = postRepository.findAll();
+        System.out.println("Trace : PostServiceImpl : postRepository.findAll() Method");
+        System.out.println("List of Post : \n" + posts);
+
         List<PostDto> postDtos = posts.stream()
                 .map(PostMapper::mapToPostDto)
                 .collect(Collectors.toList());
+
+        System.out.println("Trace : PostServiceImpl : findAllPosts() Method");
+        System.out.println("List of Post : \n" + postDtos);
 
         return postDtos;
     }
