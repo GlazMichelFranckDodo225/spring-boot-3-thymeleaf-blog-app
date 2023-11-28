@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 @Entity
-@Table(name = "users")
+@Table(name = "tbl_posts")
 public class Post {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

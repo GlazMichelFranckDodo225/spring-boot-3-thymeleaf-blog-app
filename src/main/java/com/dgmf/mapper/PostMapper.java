@@ -1,36 +1,38 @@
 package com.dgmf.mapper;
 
+import com.dgmf.entity.Post;
 import com.dgmf.entity.User;
+import com.dgmf.web.dto.PostDto;
 import com.dgmf.web.dto.UserDto;
 
-public class UserMapper {
-    // Map User Entity to UserDto
-    public static UserDto mapToUserDto(User user) {
-        UserDto userDto = UserDto.builder()
-                .id(user.getId())
-                .title(user.getTitle())
-                .description(user.getDescription())
-                .content(user.getContent())
-                .url(user.getUrl())
-                .createdOn(user.getCreatedOn())
-                .updatedOn(user.getUpdatedOn())
+public class PostMapper {
+    // Map Post Entity to PostDto
+    public static PostDto mapToPostDto(Post post) {
+        PostDto postDto = PostDto.builder()
+                .id(post.getId())
+                .title(post.getTitle())
+                .description(post.getDescription())
+                .content(post.getContent())
+                .url(post.getUrl())
+                .createdOn(post.getCreatedOn())
+                .updatedOn(post.getUpdatedOn())
                 .build();
 
-        return userDto;
+        return postDto;
     }
 
-    // Map UserDto to User Entity
-    public static User mapToUser(UserDto userDto) {
-        User user = User.builder()
-                .id(userDto.getId())
-                .title(userDto.getTitle())
-                .description(userDto.getDescription())
-                .content(userDto.getContent())
-                .url(userDto.getUrl())
-                .createdOn(userDto.getCreatedOn())
-                .updatedOn(userDto.getUpdatedOn())
+    // Map PostDto to Post Entity
+    public static Post mapToPost(PostDto postDto) {
+        Post post = Post.builder()
+                .id(postDto.getId())
+                .title(postDto.getTitle())
+                .description(postDto.getDescription())
+                .content(postDto.getContent())
+                .url(postDto.getUrl())
+                .createdOn(postDto.getCreatedOn())
+                .updatedOn(postDto.getUpdatedOn())
                 .build();
 
-        return user;
+        return post;
     }
 }
