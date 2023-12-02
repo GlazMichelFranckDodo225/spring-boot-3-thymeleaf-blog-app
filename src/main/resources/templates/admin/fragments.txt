@@ -1,0 +1,18 @@
+<!-- th:replace ==> Replaces the Current Tag with the Tag Defining 
+the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
+
+=============== 
+
+<!-- Head -->
+<div th:replace="admin/header :: header"></div>
+
+=============== 
+
+<!-- Navbar -->
+<div th:replace="admin/navbar :: navbar"></div>
+<!-- End - Bootstrap Navbar -->
+
+=============== 
+
+<!-- Footer -->
+<div th:replace="admin/footer :: footer"></div>
