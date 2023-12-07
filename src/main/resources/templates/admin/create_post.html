@@ -24,18 +24,36 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                             <label for="" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" placeholder="Enter Post Title"
                                 name="title" th:field="*{title}"> <!-- Field Name of the Model Object -->
+                            <!-- To Display the Error for the Title -->
+                            <p 
+                                th:if="${#fields.hasErrors('title')}" 
+                                class="text-danger"
+                                th:errors="*{title}"
+                            ></p>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Description</label>
                             <textarea class="form-control" id="description" placeholder="Enter Post Description"
                                 rows="3" name="description" th:field="*{description}"> <!-- Field Name of the Model Object -->
                             </textarea>
+                            <!-- To Display the Error for the Description -->
+                            <p 
+                                th:if="${#fields.hasErrors('description')}" 
+                                class="text-danger"
+                                th:errors="*{description}"
+                            ></p>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Content</label>
                             <textarea class="form-control" id="content" placeholder="Enter Post Content" rows="12"
                                 name="content" th:field="*{content}"> <!-- Field Name of the Model Object -->
                             </textarea>
+                            <!-- To Display the Error for the Content -->
+                            <p 
+                                th:if="${#fields.hasErrors('content')}" 
+                                class="text-danger"
+                                th:errors="*{content}"
+                            ></p>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>

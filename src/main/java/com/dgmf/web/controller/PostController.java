@@ -2,9 +2,11 @@ package com.dgmf.web.controller;
 
 import com.dgmf.service.PostService;
 import com.dgmf.web.dto.PostDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -50,7 +52,19 @@ public class PostController {
     // and Return Model and View
     // Create a Post - Step 3
     @PostMapping
-    public String createPost(@ModelAttribute PostDto postDto) {
+    public String createPost(
+            @Valid @ModelAttribute("post") PostDto postDto,
+            BindingResult result,
+            Model model) {
+        // Using "BindingResult" to Check the Errors and Return to the UI
+        if(result.hasErrors()) {
+            // If there is any Error in Form Submission, we
+            // return the same Post
+            model.addAttribute("post", postDto);
+
+            return "/admin/create_post";
+        }
+
         // Create the Blog Post Url with the Title
         postDto.setUrl(createPostUrl(postDto.getTitle()));
 
