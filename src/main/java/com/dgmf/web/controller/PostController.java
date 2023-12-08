@@ -75,6 +75,21 @@ public class PostController {
         return "redirect:/admin/posts";
     }
 
+    // Handler Method to Handle Edit Post Request
+    @GetMapping("/{postId}/edit")
+    public String editPostForm(
+            @PathVariable("postId") Long postId,
+            Model model
+    ) {
+        // Retrieved the Post by Id
+        PostDto postDto = postService.findPostById(postId);
+        // Add the Post to Model
+        model.addAttribute("post", postDto);
+
+        // Return the Dedicated View
+        return "admin/edit_post";
+    }
+
     private static String createPostUrl(String postTitle) {
         // Create the Blog Post Url
         // To Lower Case the Blog Post Title
