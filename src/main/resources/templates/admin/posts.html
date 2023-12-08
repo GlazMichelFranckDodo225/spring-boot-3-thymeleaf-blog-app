@@ -29,7 +29,9 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                     <td th:text="${post.title}">Post Title</td>
                     <td th:text="${post.description}">Post Description</td>
                     <td th:text="${post.createdOn}">Post Created On</td>
-                    <td></td>
+                    <td>
+                        <a th:href="@{/admin/posts/{postId}/edit(postId=${post.id})}" class="btn btn-primary">Edit</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
