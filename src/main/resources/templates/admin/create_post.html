@@ -25,11 +25,7 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                             <input type="text" class="form-control" id="title" placeholder="Enter Post Title"
                                 name="title" th:field="*{title}"> <!-- Field Name of the Model Object -->
                             <!-- To Display the Error for the Title -->
-                            <p 
-                                th:if="${#fields.hasErrors('title')}" 
-                                class="text-danger"
-                                th:errors="*{title}"
-                            ></p>
+                            <p th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></p>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Description</label>
@@ -37,11 +33,8 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                                 rows="3" name="description" th:field="*{description}"> <!-- Field Name of the Model Object -->
                             </textarea>
                             <!-- To Display the Error for the Description -->
-                            <p 
-                                th:if="${#fields.hasErrors('description')}" 
-                                class="text-danger"
-                                th:errors="*{description}"
-                            ></p>
+                            <p th:if="${#fields.hasErrors('description')}" class="text-danger"
+                                th:errors="*{description}"></p>
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Content</label>
@@ -49,11 +42,7 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                                 name="content" th:field="*{content}"> <!-- Field Name of the Model Object -->
                             </textarea>
                             <!-- To Display the Error for the Content -->
-                            <p 
-                                th:if="${#fields.hasErrors('content')}" 
-                                class="text-danger"
-                                th:errors="*{content}"
-                            ></p>
+                            <p th:if="${#fields.hasErrors('content')}" class="text-danger" th:errors="*{content}"></p>
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
@@ -70,6 +59,23 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
 
     <!-- Footer -->
     <div th:replace="admin/footer :: footer"></div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- CK Editor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#content'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>
