@@ -19,8 +19,8 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                     <h2 class="text-center">Edit Post</h2>
                 </div>
                 <div class="card-body">
-                    <form action="" method="post" role="form" th:action="@{/admin/posts}" th:object="${post}">
-                        <input type="hidden" th:field="*{id}">
+                    <form action="" method="post" role="form" th:action="@{/admin/posts/{postId}(postId=${post.id})}" th:object="${post}">
+                        <!-- <input type="hidden" th:field="*{id}"> -->
                         <input type="hidden" th:field="*{url}">
                         <input type="hidden" th:field="*{createdOn}">
                         <div class="mb-3">

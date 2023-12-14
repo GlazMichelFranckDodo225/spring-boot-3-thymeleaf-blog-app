@@ -70,7 +70,8 @@ public class PostController {
 
         postService.createPost(postDto);
 
-        // Once a User Submits the Form
+        // Once a User Submits the Form, we display
+        // the List Blog Posts Page
         // Create a Post - Step 4
         return "redirect:/admin/posts";
     }
@@ -88,6 +89,35 @@ public class PostController {
 
         // Return the Dedicated View
         return "admin/edit_post";
+    }
+
+    // Handler Method to Handle Edit Post from Submit Request
+    @PostMapping("/{postId}")
+    public String updatePost(
+            @PathVariable("postId") Long postId,
+            // To Bind the Form "post" Object
+            @Valid @ModelAttribute("post") PostDto postDto,
+            BindingResult result,
+            Model model
+            ) {
+        // Using "BindingResult" to Check the Errors and Return to the UI
+        if(result.hasErrors()) {
+            // If there is any Error in Form Submission, we
+            // return the same Post
+            model.addAttribute("post", postDto);
+
+            return "/admin/edit_post";
+        }
+
+        // Updating Post
+        postDto.setId(postId);
+        postService.updatePost(postDto);
+
+        // Once a User Submits the Form, we display the
+        // List Blog Posts Page
+        return "redirect:/admin/posts";
+
+
     }
 
     private static String createPostUrl(String postTitle) {
