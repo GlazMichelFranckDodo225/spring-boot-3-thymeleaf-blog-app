@@ -120,6 +120,16 @@ public class PostController {
 
     }
 
+    // Handler Method to Handle Delete Post Request
+    @GetMapping("/{postId}/delete")
+    public String deletePost(@PathVariable("postId") Long postId) {
+        postService.deletePost(postId);
+
+        // Once the Post is Deleted Successfully, we display the
+        // List Blog Posts Page
+        return "redirect:/admin/posts";
+    }
+
     private static String createPostUrl(String postTitle) {
         // Create the Blog Post Url
         // To Lower Case the Blog Post Title
