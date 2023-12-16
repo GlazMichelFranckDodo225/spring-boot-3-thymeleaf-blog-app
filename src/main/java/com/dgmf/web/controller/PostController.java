@@ -130,6 +130,15 @@ public class PostController {
         return "redirect:/admin/posts";
     }
 
+    // Handler Method to Handle View Post Request
+    @GetMapping("/{postUrl}/view")
+    public String viewPost(@PathVariable("postUrl") String postUrl, Model model) {
+        PostDto postDto = postService.findPostByUrl(postUrl);
+        model.addAttribute("post", postDto);
+
+        return "/admin/view_post";
+    }
+
     private static String createPostUrl(String postTitle) {
         // Create the Blog Post Url
         // To Lower Case the Blog Post Title
