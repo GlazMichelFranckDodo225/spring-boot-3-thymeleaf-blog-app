@@ -5,7 +5,6 @@ import com.dgmf.mapper.PostMapper;
 import com.dgmf.repository.PostRepository;
 import com.dgmf.service.PostService;
 import com.dgmf.web.dto.PostDto;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -69,5 +68,15 @@ public class PostServiceImpl implements PostService {
         PostDto postDto = PostMapper.mapToPostDto(post);
 
         return postDto;
+    }
+
+    @Override
+    public List<PostDto> searchPosts(String query) {
+        List<Post> posts = postRepository.searchPost(query);
+        List<PostDto> postDtos = posts.stream()
+                .map(PostMapper::mapToPostDto)
+                .collect(Collectors.toList());
+
+        return postDtos;
     }
 }

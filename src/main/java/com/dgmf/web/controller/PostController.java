@@ -130,6 +130,19 @@ public class PostController {
         return "redirect:/admin/posts";
     }
 
+    // Handler Method to Search Post Request
+    // Example: http://localhost:8080/admin/posts/search?query=java
+    @GetMapping("/search")
+    public String searchPosts(
+            @RequestParam("query") String query,
+            Model model
+    ) {
+        List<PostDto> postDtos = postService.searchPosts(query);
+        model.addAttribute("posts", postDtos);
+
+        return "admin/posts";
+    }
+
     // Handler Method to Handle View Post Request
     @GetMapping("/{postUrl}/view")
     public String viewPost(@PathVariable("postUrl") String postUrl, Model model) {
