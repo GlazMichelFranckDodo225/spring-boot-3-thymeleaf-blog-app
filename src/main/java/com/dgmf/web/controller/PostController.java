@@ -30,8 +30,8 @@ public class PostController {
         List<PostDto> postDtos = postService.findAllPosts();
         model.addAttribute("posts", postDtos);
 
-        System.out.println("Trace : PostController : post() Method");
-        System.out.println("List of Post : \n" + postDtos);
+        /*System.out.println("Trace : PostController : post() Method");
+        System.out.println("List of Post : \n" + postDtos);*/
 
         return "/admin/posts";
     }
@@ -134,7 +134,7 @@ public class PostController {
     // Example: http://localhost:8080/admin/posts/search?query=java
     @GetMapping("/search")
     public String searchPosts(
-            @RequestParam("query") String query,
+            @RequestParam(value = "query") String query,
             Model model
     ) {
         List<PostDto> postDtos = postService.searchPosts(query);
@@ -145,7 +145,10 @@ public class PostController {
 
     // Handler Method to Handle View Post Request
     @GetMapping("/{postUrl}/view")
-    public String viewPost(@PathVariable("postUrl") String postUrl, Model model) {
+    public String viewPost(
+            @PathVariable("postUrl") String postUrl,
+            Model model
+    ) {
         PostDto postDto = postService.findPostByUrl(postUrl);
         model.addAttribute("post", postDto);
 
