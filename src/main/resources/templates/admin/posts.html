@@ -46,7 +46,7 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
                     <td th:text="${postStat.count}">1</td>
                     <td th:text="${post.title}">Post Title</td>
                     <td th:text="${post.description}">Post Description</td>
-                    <td th:text="${post.createdOn}">Post Created On</td>
+                    <td th:text="${#temporals.format(post.createdOn, 'dd MMM yyyy')}">Post Created On</td>
                     <td>
                         <a th:href="@{/admin/posts/{postId}/edit(postId=${post.id})}" class="btn btn-primary">Edit</a>
                         <a th:href="@{/admin/posts/{postId}/delete(postId=${post.id})}"
