@@ -6,13 +6,23 @@ the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
 <!-- Head -->
 <div th:replace="admin/header :: header"></div>
 
+<!-- Head -->
+<div th:replace="blog/header :: header"></div>
+
 =============== 
 
-<!-- Navbar -->
-<div th:replace="admin/navbar :: navbar"></div>
+<!-- Navbar Admin -->
+<div th:replace="admin/navbar_admin :: navbar_admin"></div>
+<!-- End - Bootstrap Navbar -->
+
+<!-- Navbar Blog -->
+<div th:replace="blog/navbar_blog :: navbar_blog"></div>
 <!-- End - Bootstrap Navbar -->
 
 =============== 
 
-<!-- Footer -->
+<!-- Footer Admin -->
 <div th:replace="admin/footer :: footer"></div>
+
+<!-- Footer Blog -->
+<div th:replace="blog/footer :: footer"></div>
