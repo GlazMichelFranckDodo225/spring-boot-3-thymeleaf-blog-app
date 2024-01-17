@@ -3,30 +3,33 @@
 
 <!-- th:replace ==> Replaces the Current Tag with the Tag Defining 
 the Fragment ==> th:replace="templateName :: thymeleafSelector"-->
-<div th:replace="admin/header :: header"></div>
+<div th:replace="blog/header :: header"></div>
 
 <body>
     <!-- Navbar -->
-    <div th:replace="admin/navbar_admin :: navbar_admin"></div>
+    <div th:replace="blog/navbar_blog :: navbar_blog"></div>
     <!-- End - Bootstrap Navbar -->
 
     <br>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-9">
                 <h2 th:text="${post.title}"></h2>
                 <hr>
                 <h4 th:text="${post.description}"></h4>
                 <hr>
                 <div th:utext="${post.content}"></div>
             </div>
+            <div class="col-md-3">
+                <!-- Search Bar goes here -->
+            </div>
         </div>
     </div>
 
     <br>
     <!-- Footer -->
-    <div th:replace="admin/footer :: footer"></div>
+    <div th:replace="blog/footer :: footer"></div>
 </body>
 
 </html>
